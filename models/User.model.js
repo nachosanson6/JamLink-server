@@ -17,7 +17,7 @@ const userSchema = new Schema(
     },
     avatar: {
       type: String,
-      default: "https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png"
+      default: "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
     },
     instruments: {
       type: [String],
@@ -29,6 +29,11 @@ const userSchema = new Schema(
     friends: [{
       type: Schema.Types.ObjectId,
     }],
+
+    role: {
+      type: String,
+      default: "User"
+    }
   },
 
   {
