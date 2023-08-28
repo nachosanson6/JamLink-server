@@ -1,9 +1,9 @@
 const router = require("express").Router()
 
-const { User } = require("../models/User.model")
+const User = require("../models/User.model")
 
 
-router.post('/details/:id', (req, res, next) => {
+router.get('/details/:user_id', (req, res, next) => {
 
     const { user_id } = req.params
 
