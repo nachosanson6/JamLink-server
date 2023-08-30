@@ -14,6 +14,16 @@ router.get('/details/:user_id', (req, res, next) => {
 
 })
 
+router.get('/getAllUsers/:user_id', (req, res, next) => {
+
+    const { user_id } = req.params
+    User
+        .find({ _id: { $ne: user_id } })
+        .select({ avatar: 1, username: 1, instruments: 1 })
+        .then(response => res.json(response))
+        .catch(err => (next(err)))
+})
+
 router.put('/edit/:user_id', (req, res, next) => {
     const { user_id } = req.params
     const { username, email, avatar, instruments, description } = req.body
@@ -25,7 +35,6 @@ router.put('/edit/:user_id', (req, res, next) => {
 })
 
 router.delete(`/delete/:user_id`, (req, res, next) => {
-    console.log('hasta aqui llegooooa')
     const { user_id } = req.params
 
     User
