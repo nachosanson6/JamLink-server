@@ -34,6 +34,16 @@ router.put('/edit/:user_id', (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.put('/newFriend/:user_id', (req, res, next) => {
+
+    const { user_id } = req.params
+    const { _id: friend } = req.body
+    User
+        .updateOne({ _id: user_id }, { $addToSet: { friends: friend } })
+        .then(() => res.sendStatus(201))
+        .catch(err => next(err))
+})
+
 router.delete(`/delete/:user_id`, (req, res, next) => {
     const { user_id } = req.params
 
