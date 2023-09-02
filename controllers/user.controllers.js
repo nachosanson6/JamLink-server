@@ -7,20 +7,22 @@ const details = (req, res, next) => {
     User
         .findById(user_id)
         .then(response => res.json(response))
-        .catch(err => next.err)
+        .catch(err => next(err))
 }
 
 const getAllUsers = (req, res, next) => {
 
     const { user_id } = req.params
+
     User
         .find({ _id: { $ne: user_id } })
         .select({ avatar: 1, username: 1, instruments: 1 })
         .then(response => res.json(response))
-        .catch(err => (next(err)))
+        .catch(err => next(err))
 }
 
 const edit = (req, res, next) => {
+
     const { user_id } = req.params
     const { username, email, avatar, instruments, description } = req.body
 
@@ -34,6 +36,7 @@ const newFriend = (req, res, next) => {
 
     const { user_id } = req.params
     const { _id: friend } = req.body
+
     User
         .updateOne({ _id: user_id }, { $addToSet: { friends: friend } })
         .then(() => res.sendStatus(201))
@@ -44,6 +47,7 @@ const deleteFriend = (req, res, next) => {
 
     const { user_id } = req.params
     const { _id: friend } = req.body
+
     User
         .updateOne({ _id: user_id }, { $pull: { friends: friend } })
         .then(() => res.sendStatus(201))
@@ -51,16 +55,18 @@ const deleteFriend = (req, res, next) => {
 }
 
 const getFriendAvatar = (req, res, next) => {
-    const { friendId } = req.params
+
+    const { friend_id } = req.params
 
     User
-        .findById(friendId)
+        .findById(friend_id)
         .select({ avatar: 1 })
         .then(response => res.json(response))
         .catch(err => (next(err)))
 }
 
 const deleteUser = (req, res, next) => {
+
     const { user_id } = req.params
 
     User

@@ -1,8 +1,8 @@
 
 
-const image = (req, res) => {
+const uploadImage = (req, res) => {
 
-        if (!req.file) {
+    if (!req.file) {
         res.status(500).json({ errorMessage: 'Error cargando el archivo' })
         return
     }
@@ -11,5 +11,5 @@ const image = (req, res) => {
 }
 
 module.exports = {
-    image
+    uploadImage
 }

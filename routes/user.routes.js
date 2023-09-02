@@ -20,7 +20,7 @@ router.put('/newFriend/:user_id', newFriend)
 
 router.put('/deleteFriend/:user_id', deleteFriend)
 
-router.get('/getFriendAvatar/:friendId', getFriendAvatar)
+router.get('/getFriendAvatar/:friend_id', getFriendAvatar)
 
 router.delete(`/delete/:user_id`, deleteUser)
 
