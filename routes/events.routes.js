@@ -1,13 +1,14 @@
 const router = require("express").Router()
-
+const { verifyToken } = require("../middleware/verifyToken")
 const Event = require('./../models/Event.model')
 
-router.post('/newEvent', (req, res, next) => {
+router.post('/newEvent', verifyToken, (req, res, next) => {
 
     const { title, description, address, location, date, organizer } = req.body
+    const {_id: owner} = req.payload
 
     Event
-        .create({ title, description, address, date, location, organizer })
+        .create({ title, description, address, date, location, owner })
         .then(() => res.sendStatus(200))
         .catch(err => next(err))
 })
@@ -16,6 +17,7 @@ router.get('/getAllEvents', (req, res, next) => {
 
     Event
         .find()
+        .sort({date: 1})
         // TODO: PROYECTAR CON SELECT
         // TODO: ORDENAR CON SORT
         .then(response => res.json(response))

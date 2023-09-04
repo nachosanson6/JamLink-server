@@ -1,9 +1,5 @@
 const router = require("express").Router()
-
-
 const { signup, login, verify } = require("../controllers/auth.controllers")
-
-
 const { verifyToken } = require("../middleware/verifyToken")
 
 router.post('/signup', signup)

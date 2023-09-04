@@ -24,7 +24,7 @@ const eventSchema = new Schema(
             }
         },
 
-        organizer: {
+        owner: {
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
