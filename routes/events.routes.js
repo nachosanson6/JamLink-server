@@ -39,13 +39,22 @@ router.put('/joinEvent/:event_id', (req, res, next) => {
     const { instrumentsData, user_id } = req.body
     const { instruments } = instrumentsData
 
-
-    console.log("ESTOS SON LOS INSTRUMENTOSSSS----------------------", instruments)
-
-
     Event
         .findByIdAndUpdate({ _id: event_id }, { $addToSet: { attendees: { user: user_id, instruments } } })
         .then(() => res.sendStatus(201))
+        .catch(err => next(err))
+})
+
+router.put('/withdrawEvent/:event_id', (req, res, next) => {
+    const { event_id } = req.params
+    const { user_id } = req.body
+
+    console.log(event_id)
+    console.log(user_id)
+
+    Event
+        .updateOne({ _id: event_id }, { $pull: { attendees: { user: user_id } } })
+        .then((response) => console.log(response))
         .catch(err => next(err))
 })
 
