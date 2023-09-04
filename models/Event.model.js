@@ -7,20 +7,12 @@ const eventSchema = new Schema(
             required: [true, "El título es obligatorio"]
         },
 
-        instruments: {
-            type: [String],
-        },
-
         description: {
             type: String
         },
 
         address: {
-            street: String,
-            number: Number,
-            zipcode: Number,
-            city: String,
-            country: String
+            type: String
         },
 
         location: {
@@ -38,8 +30,13 @@ const eventSchema = new Schema(
         },
 
         attendees: [{
-            type: Schema.Types.ObjectId,
-            ref: 'User'
+            user: {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            },
+            instruments: {
+                type: [String],
+            },
         }],
 
         date: {

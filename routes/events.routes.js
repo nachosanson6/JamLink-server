@@ -4,10 +4,10 @@ const Event = require('./../models/Event.model')
 
 router.post('/newEvent', (req, res, next) => {
 
-    const { title, description, address, date, organizer } = req.body
+    const { title, description, address, location, date, organizer } = req.body
 
     Event
-        .create({ title, description, address, date, organizer })
+        .create({ title, description, address, date, location, organizer })
         .then(() => res.sendStatus(200))
         .catch(err => next(err))
 })
@@ -31,6 +31,22 @@ router.get('/details/:event_id', (req, res, next) => {
         .then(response => res.json(response))
         .catch(err => next(err))
 })
+
+router.put('/joinEvent/:event_id', (req, res, next) => {
+    const { event_id } = req.params
+    const { instrumentsData, user_id } = req.body
+    const { instruments } = instrumentsData
+
+
+    console.log("ESTOS SON LOS INSTRUMENTOSSSS----------------------", instruments)
+
+
+    Event
+        .findByIdAndUpdate({ _id: event_id }, { $addToSet: { attendees: { user: user_id, instruments } } })
+        .then(() => res.sendStatus(201))
+        .catch(err => next(err))
+})
+
 
 
 module.exports = router
