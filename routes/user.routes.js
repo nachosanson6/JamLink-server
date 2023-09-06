@@ -1,20 +1,20 @@
 const router = require("express").Router()
 
 const {
-    details,
+    getUserDetails,
     getAllUsers,
-    edit,
+    editUser,
     newFriend,
     deleteFriend,
     getFriendAvatar,
     deleteUser
 } = require('./../controllers/user.controllers')
 
-router.get('/details/:user_id', details)
+router.get('/details/:user_id', getUserDetails)
 
 router.get('/getAllUsers/:user_id', getAllUsers)
 
-router.put('/edit/:user_id', edit)
+router.put('/edit/:user_id', editUser)
 
 router.put('/newFriend/:user_id', newFriend)
 

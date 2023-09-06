@@ -1,6 +1,6 @@
 const User = require("../models/User.model")
 
-const details = (req, res, next) => {
+const getUserDetails = (req, res, next) => {
 
     const { user_id } = req.params
 
@@ -21,7 +21,7 @@ const getAllUsers = (req, res, next) => {
         .catch(err => next(err))
 }
 
-const edit = (req, res, next) => {
+const editUser = (req, res, next) => {
 
     const { user_id } = req.params
     const { username, email, avatar, instruments, description } = req.body
@@ -38,7 +38,7 @@ const newFriend = (req, res, next) => {
     const { _id: friend } = req.body
 
     User
-        .updateOne({ _id: user_id }, { $addToSet: { friends: friend } })
+        .findByIdAndUpdate(user_id, { $addToSet: { friends: friend } })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 }
@@ -49,7 +49,7 @@ const deleteFriend = (req, res, next) => {
     const { _id: friend } = req.body
 
     User
-        .updateOne({ _id: user_id }, { $pull: { friends: friend } })
+        .findByIdAndUpdate(user_id, { $pull: { friends: friend } })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 }
@@ -76,9 +76,9 @@ const deleteUser = (req, res, next) => {
 }
 
 module.exports = {
-    details,
+    getUserDetails,
     getAllUsers,
-    edit,
+    editUser,
     newFriend,
     deleteFriend,
     getFriendAvatar,
