@@ -60,7 +60,7 @@ const getFriendAvatar = (req, res, next) => {
 
     User
         .findById(friend_id)
-        .select({ avatar: 1 })
+        .select({ avatar: 1, username: 1 })
         .then(response => res.json(response))
         .catch(err => (next(err)))
 }
