@@ -18,7 +18,6 @@ const getAllEvents = (req, res, next) => {
         .find()
         .sort({ date: 1 })
         // TODO: PROYECTAR CON SELECT
-        // TODO: ORDENAR CON SORT
         .then(response => res.json(response))
         .catch(err => next(err))
 }
@@ -61,7 +60,7 @@ const editEvent = (req, res, next) => {
     const { _id, title, description, date, location } = req.body
 
     Event
-        .findByIdAndUpdate(_id, { title, description, date, location })
+        .findByIdAndUpdate(_id, { title, description, date, location }) 
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 }
