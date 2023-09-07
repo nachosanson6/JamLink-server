@@ -3,13 +3,13 @@ const { verifyToken } = require("../middleware/verifyToken")
 
 const {
     addComment,
-    getEventComments,
+    getCommentData,
     editComment,
     deleteComment
 } = require("../controllers/comments.controllers")
 
 router.post('/addComment/:event_id', verifyToken, addComment)
-router.get('/getEventComments/:event_id', getEventComments)
+router.get('/getCommentData/:comment_id', getCommentData)
 router.put('/editComment/:comment_id', editComment)
 router.post('/deleteComment/:event_id', deleteComment)
 
