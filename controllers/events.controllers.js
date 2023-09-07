@@ -3,7 +3,7 @@ const Event = require('./../models/Event.model')
 
 const newEvent = (req, res, next) => {
 
-    const { title, description, address, location, date, organizer } = req.body
+    const { title, description, address, location, date } = req.body
     const { _id: owner } = req.payload
 
     Event
