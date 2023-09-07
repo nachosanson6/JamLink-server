@@ -4,31 +4,27 @@ const Event = require("../models/Event.model")
 
 const addComment = (req, res, next) => {
     const { event_id } = req.params
-    const { comment } = req.body
+    const { comments } = req.body
     const { _id: owner } = req.payload
 
-    console.log(event_id)
-    console.log(req.body)
-    console.log(req.payload)
-
-    // Comments
-    //     .create({ comment, owner })
-    //     .then((comment) => {
-    //         const comment_id = comment._id
-    //         Event
-    //             .findByIdAndUpdate(event_id, { $addToSet: { comments: comment_id } })
-    //             .then(() => res.sendStatus(200))
-    //             .catch(err => console.log(err))
-    //     })
-    //     .catch(err => next(err))
+    Comments
+        .create({ comment: comments, owner })
+        .then((comment) => {
+            const comment_id = comment._id
+            Event
+                .findByIdAndUpdate(event_id, { $addToSet: { comments: comment_id } })
+                .then(() => res.sendStatus(200))
+                .catch(err => console.log(err))
+        })
+        .catch(err => next(err))
 }
 
-const getEventComments = (req, res, next) => {
+const getCommentData = (req, res, next) => {
 
-    const { event_id } = req.params
+    const { comment_id } = req.params
 
     Comments
-        .findById(event_id)
+        .findById(comment_id)
         .then(response => res.json(response))
         .catch(err => next(err))
 }
@@ -62,7 +58,7 @@ const deleteComment = (req, res, next) => {
 
 module.exports = {
     addComment,
-    getEventComments,
+    getCommentData,
     editComment,
     deleteComment
 }
