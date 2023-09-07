@@ -44,6 +44,11 @@ const eventSchema = new Schema(
             required: true
         },
 
+        comments: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Coments',
+        }]
+
     },
 
     {
