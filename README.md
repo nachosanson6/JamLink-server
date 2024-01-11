@@ -102,15 +102,6 @@ The file structure in the Jamlink front-end is organized as follows:
 
 ## Used Technologies
 
-- **Front-end:**
-  - [React](https://reactjs.org/) - JavaScript library for building user interfaces.
-  - [Vite](https://vitejs.dev/) - Fast development tool for JavaScript and TypeScript-based projects.
-  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Markup language for web page structure.
-  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Style sheet language for styling the user interface.
-  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Programming language for client-side logic.
-  - [Bootstrap](https://getbootstrap.com/) - CSS framework for fast and responsive web development.
-  - [Google Autocomplete](https://developers.google.com/maps/documentation/javascript/places-autocomplete) - Google Maps Autocomplete component.
-
 - **Back-end:**
   - [Express](https://expressjs.com/) - Web framework for Node.js used on the server.
   - [Node.js](https://nodejs.org/) - Runtime environment for JavaScript on the server side.
