@@ -12,7 +12,7 @@
 5. [Used Technologies](#used-technologies)
 6. [API end Points](#api-end-points)
 
-[![Front-end Repository](https://img.shields.io/badge/Front--end-Repository-blue?style=for-the-badge&logo=github)]([link_al_repositorio_del_frontend](https://github.com/nachosanson6/JamLink-client))
+[![Front-end Repository](https://img.shields.io/badge/Front--end-Repository-blue?style=for-the-badge&logo=github)](https://github.com/nachosanson6/JamLink-client)
 
 
 ## Description
