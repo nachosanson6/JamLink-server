@@ -12,6 +12,9 @@
 5. [Used Technologies](#used-technologies)
 6. [API end Points](#api-end-points)
 
+[![Front-end Repository](https://img.shields.io/badge/Front--end-Repository-blue?style=for-the-badge&logo=github)]([link_al_repositorio_del_frontend](https://github.com/nachosanson6/JamLink-client))
+
+
 ## Description
 
 Jamlink is a web application created during the Ironhack bootcamp, providing a social platform for musicians. The application aims to connect musicians who want to organize and participate in jam sessions. Some key features of Jamlink include:
