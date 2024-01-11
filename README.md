@@ -130,7 +130,7 @@ The file structure in the Jamlink front-end is organized as follows:
 
 | HTTP Method            | URI path     | Description                 |
 | ---------------------- | ------------ | --------------------------- |
-| GET                    | /getAllUsers | All events list             |
+| GET                    | /getAllEvents | All events list             |
 | POST                   | /saveEvent   | Create new event            |
 | GET                    | /:id         | Matching ID events details  |
 | PUT                    | /:id/edit    | Matching ID events edition  |
