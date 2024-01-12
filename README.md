@@ -11,6 +11,8 @@
 4. [File Structure](#file-structure)
 5. [Used Technologies](#used-technologies)
 6. [API end Points](#api-end-points)
+7. [License](#license)
+8. [Contact](#contact)
 
 [![Front-end Repository](https://img.shields.io/badge/Front--end-Repository-blue?style=for-the-badge&logo=github)](https://github.com/nachosanson6/JamLink-client)
 
@@ -145,3 +147,27 @@ The file structure in the Jamlink front-end is organized as follows:
 | POST                   | /signup      | Signup user                 |
 | POST                   | /login       | Login user                  |
 | GET                    | /verify      | Verify Auth token           |
+
+## License
+
+This project uses various technologies and resources, each with its respective licenses. Below is the license information for the main technologies and tools used in the front-end:
+
+### Back-end
+
+- **Express**: [MIT License](https://opensource.org/licenses/MIT)
+- **Node.js**: [MIT License](https://opensource.org/licenses/MIT)
+- **MongoDB**: [Server Side Public License (SSPL)](https://www.mongodb.com/licensing/server-side-public-license)
+- **Axios**: [MIT License](https://opensource.org/licenses/MIT)
+
+### Tools and Utilities
+
+- **GitHub Actions**: [GitHub Terms of Service](https://docs.github.com/en/github/site-policy/github-terms-of-service)
+
+
+## Contact
+
+Created by [Nacho Sansón](https://github.com/nachosanson6). 
+
+Contributors:
+
+- [Fernando Gómez](https://github.com/piltrimon86)
